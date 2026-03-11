@@ -1,0 +1,219 @@
+
+abstract class  LocaleKeys {
+
+  static const SUCCESS = 'SUCCESS';
+  static const NO_CONTENT = 'NO_CONTENT';
+  static const BAD_REQUEST = 'BAD_REQUEST';
+  static const FORBIDDEN = 'FORBIDDEN';
+  static const UNAUTHORIZED = 'UNAUTHORIZED';
+  static const NOT_FOUND = 'NOT_FOUND';
+  static const INTERNAL_SERVER_ERROR = 'INTERNAL_SERVER_ERROR';
+  static const EMPTY_LIST = 'EMPTY_LIST';
+  static const CONNECT_TIMEOUT = 'CONNECT_TIMEOUT';
+  static const CANCEL = 'CANCEL';
+  static const RECEIVE_TIMEOUT = 'RECEIVE_TIMEOUT';
+  static const SEND_TIMEOUT = 'SEND_TIMEOUT';
+  static const CASHE_ERROR = 'CASHE_ERROR';
+  static const NO_INTERNET_CONNECTION = 'NO_INTERNET_CONNECTION';
+  static const DEFAULT = 'DEFAULT';
+
+  static const onBoardingTitle1="تتبع ختمتك";
+  static const onBoardingDescription1="حدد أهدافك اليومية وتتبع إنجازك لتتمكن من إتمام الختمة بسهولة.";
+  static const onBoardingTitle2="وضع الحفظ ";
+  static const onBoardingDescription2="أدوات ذكية لمساعدتك على حفظ القران الكريم وتثبيته";
+  static const onBoardingTitle3="مكتبة التلاوات";
+  static const onBoardingDescription3="استمع الى تلاوات عطرة من مشاهير القراء  بجودة عالية ";
+  static const continueText="continueText";
+  static const skip="skip";
+  static const name="name";
+  static const getStarted="getStarted";
+
+  static const emailRequired="emailRequired";
+  static const invalidEmail="invalidEmail";
+  static const passwordRequired="passwordRequired";
+  static const passwordTooShort="passwordTooShort";
+
+  static const fullNameRequired="fullNameRequired";
+  static const fullNameTwoParts="fullNameTwoParts";
+  static const fullNameEachPartMinLength="fullNameEachPartMinLength";
+  static const phoneRequired="phoneRequired";
+  static const phoneDigitsOnly="phoneDigitsOnly";
+  static const phoneLength="phoneLength";
+  static const phoneInvalidEgyptian="phoneInvalidEgyptian";
+  static const confirmPasswordRequired="confirmPasswordRequired";
+  static const passwordsNotMatch="passwordsNotMatch";
+
+  static const loginWelcome="loginWelcome";
+  static const loginBack="loginBack";
+  static const loginSubtitle="loginSubtitle";
+  static const loginEmailLabel="loginEmailLabel";
+  static const loginEmailHint="loginEmailHint";
+  static const loginPasswordLabel="loginPasswordLabel";
+  static const loginPasswordHint="loginPasswordHint";
+  static const forgotPassword="forgotPassword";
+  static const forgotTitle="forgotTitle";
+  static const forgotTitleHighlight="forgotTitleHighlight";
+  static const forgotSubtitle="forgotSubtitle";
+  static const forgotEmailLabel="forgotEmailLabel";
+  static const forgotEmailHint="forgotEmailHint";
+  static const sendResetLink="sendResetLink";
+  static const backToLogin="backToLogin";
+  static const resetLinkSent="resetLinkSent";
+  static const login="login";
+  static const newToAcademyQuestion="newToAcademyQuestion";
+  static const signUpAction="signUpAction";
+
+  static const registerJoinFirst="registerJoinFirst";
+  static const registerJoinSecond="registerJoinSecond";
+  static const registerSubtitle="registerSubtitle";
+  static const registerFullNameLabel="registerFullNameLabel";
+  static const registerFullNameHint="registerFullNameHint";
+  static const registerPhoneLabel="registerPhoneLabel";
+  static const registerPhoneHint="registerPhoneHint";
+  static const registerPasswordHint="registerPasswordHint";
+  static const registerConfirmPasswordLabel="registerConfirmPasswordLabel";
+  static const registerConfirmPasswordHint="registerConfirmPasswordHint";
+  static const changePasswordOldLabel="changePasswordOldLabel";
+  static const changePasswordNewLabel="changePasswordNewLabel";
+  static const changePasswordConfirmLabel="changePasswordConfirmLabel";
+  static const changePasswordOldIncorrect="changePasswordOldIncorrect";
+  static const saveChanges="saveChanges";
+  static const createAccount="createAccount";
+  static const alreadyWarriorQuestion="alreadyWarriorQuestion";
+  static const signInAction="signInAction";
+  static const confirmRegistrationTitle="confirmRegistrationTitle";
+  static const confirmRegistrationSubtitle="confirmRegistrationSubtitle";
+  static const confirmationCodeLabel="confirmationCodeLabel";
+  static const confirmationCodeHint="confirmationCodeHint";
+  static const verificationCodeRequired="verificationCodeRequired";
+  static const confirmAction="confirmAction";
+  static const accountConfirmed="accountConfirmed";
+  static const codeSentToEmail="codeSentToEmail";
+  static const noActiveCodeFound="noActiveCodeFound";
+  static const passwordUpdatedSuccess="passwordUpdatedSuccess";
+  static const profileUpdatedSuccess="profileUpdatedSuccess";
+  static const loginEmailNotConfirmed="loginEmailNotConfirmed";
+  static const loginInvalidCredentials="loginInvalidCredentials";
+  static const invalidVerificationCode="invalidVerificationCode";
+  static const passwordResetSuccess="passwordResetSuccess";
+  static const codeVerifiedSetPassword="codeVerifiedSetPassword";
+  static const noActiveResetSession="noActiveResetSession";
+  static const back="back";
+  static const resetPasswordTitle="resetPasswordTitle";
+  static const verificationCodeLabel="verificationCodeLabel";
+  static const verificationCodeHint="verificationCodeHint";
+  static const verifyCodeAction="verifyCodeAction";
+  static const resendCode="resendCode";
+  static const codeExpired="codeExpired";
+  static const newCodeSent="newCodeSent";
+
+  static const startTitle="startTitle";
+  static const startSubtitle="startSubtitle";
+  static const startLevel="startLevel";
+  static const startStatClasses="startStatClasses";
+  static const startStatHours="startStatHours";
+  static const startStatStreak="startStatStreak";
+  static const startStatAwards="startStatAwards";
+  static const startAchievements="startAchievements";
+  static const startViewAll="startViewAll";
+  static const startAchievementFirstStrike="startAchievementFirstStrike";
+  static const startAchievementFirstStrikeDesc="startAchievementFirstStrikeDesc";
+  static const startAchievementSevenDayWarrior="startAchievementSevenDayWarrior";
+  static const startAchievementSevenDayWarriorDesc="startAchievementSevenDayWarriorDesc";
+  static const startAchievementDedicationMaster="startAchievementDedicationMaster";
+  static const startAchievementDedicationMasterDesc="startAchievementDedicationMasterDesc";
+  static const startAchievementEarlyBird="startAchievementEarlyBird";
+  static const startAchievementEarlyBirdDesc="startAchievementEarlyBirdDesc";
+  static const startAccount="startAccount";
+  static const startEditProfile="startEditProfile";
+  static const startPaymentWallet="startPaymentWallet";
+  static const startChangePassword="startChangePassword";
+  static const startLanguage="startLanguage";
+  static const languageEnglish="languageEnglish";
+  static const languageArabic="languageArabic";
+  static const startNotificationSettings="startNotificationSettings";
+  static const startSupport="startSupport";
+  static const startHelpCenter="startHelpCenter";
+  static const startTerms="startTerms";
+  static const startPrivacy="startPrivacy";
+  static const startLogout="startLogout";
+  static const startNavHome="startNavHome";
+  static const startNavClasses="startNavClasses";
+  static const startNavChat="startNavChat";
+  static const startNavPayment="startNavPayment";
+  static const startNavProfile="startNavProfile";
+  static const exitAppTitle="exitAppTitle";
+  static const exitAppMessage="exitAppMessage";
+  static const exitAppCancel="exitAppCancel";
+  static const exitAppConfirm="exitAppConfirm";
+  static const retry="retry";
+  static const amountInvalid="amountInvalid";
+  static const addAllFields="addAllFields";
+  static const notEnoughBalance="notEnoughBalance";
+
+  static const purchaseSuccessfully = 'purchaseSuccessfully';
+  static const selectTeacher = 'selectTeacher';
+  static const copied = 'copied';
+  static const payConfirmation = 'payConfirmation';
+  static const payReceived = 'payReceived';
+  static const shareQr = 'shareQr';
+  static const payWalletDesc = 'payWalletDesc';
+  static const shareApp = 'shareApp';
+  static const appStore = 'appStore';
+  static const playStore = 'playStore';
+  static const toYourNumber = 'toYourNumber';
+  static const codeSent = 'codeSent';
+  static const codeSend = 'codeSend';
+  static const codeSendDesc = 'codeSendDesc';
+  static const confirmPayment = 'confirmPayment';
+  static const successSubscribed = 'successSubscribed';
+  static const yourCurrentPlanAvailable = 'yourCurrentPlanAvailable';
+  static const ok = 'ok';
+  static const le = 'le';
+
+
+  static const whatULearn = 'whatULearn';
+  static const aboutThisClass = 'aboutThisClass';
+  static const seeMore = 'seeMore';
+  static const seeLess = 'seeLess';
+  static const change = 'change';
+  static const buyVideoPackage = 'buyVideoPackage';
+  static const confirmPurchase = 'confirmPurchase';
+  static const yes = 'yes';
+  static const no = 'no';
+  static const buyDesc = 'buyDesc';
+  static const videoLockedPurchase = 'videoLockedPurchase';
+  static const notification = 'notification';
+  static const completed = 'completed';
+  static const free = 'free';
+  static const emptyNotifications = 'emptyNotifications';
+  static const courseDetailProgressTitle = 'courseDetail.progressTitle';
+  static const courseDetailVideosCount = 'courseDetail.videosCount';
+  static const courseDetailVideosLabel = 'courseDetail.videosLabel';
+  static const courseDetailMetaDuration = 'courseDetail.meta.duration';
+  static const courseDetailMetaStudents = 'courseDetail.meta.students';
+  static const courseDetailMetaLevel = 'courseDetail.meta.level';
+  static const paymentAddBalanceTitle = 'payment.addBalance.title';
+  static const paymentAddBalanceRechargeAmountLabel =
+      'payment.addBalance.rechargeAmountLabel';
+  static const paymentAddBalanceRechargeAmountHint =
+      'payment.addBalance.rechargeAmountHint';
+  static const paymentAddBalanceMobileNumberLabel =
+      'payment.addBalance.mobileNumberLabel';
+  static const paymentAddBalanceMobileNumberHint =
+      'payment.addBalance.mobileNumberHint';
+  static const paymentAddBalanceNext = 'payment.addBalance.next';
+  static const paymentStatusPaid = 'payment.status.paid';
+  static const iHaveCode = 'iHaveCode';
+
+  static const chatHeaderCoachName = 'chat.header.coachName';
+  static const chatHeaderStatus = 'chat.header.status';
+  static const chatStartTitle = 'chat.start.title';
+  static const chatStartSubtitle = 'chat.start.subtitle';
+  static const chatInputHint = 'chat.input.hint';
+  static const chatAttachmentsReady = 'chat.attachments.ready';
+  static const chatAttachmentsPickFailed = 'chat.attachments.pickFailed';
+
+
+
+}
