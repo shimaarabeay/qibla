@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:qibla/core/presentation/resources/color_manager.dart';
 
 class DotsIndicator extends StatelessWidget {
   final int currentIndex;
@@ -8,10 +10,10 @@ class DotsIndicator extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final screenWidth = MediaQuery.of(context).size.width;
-    final dotSize = screenWidth * 0.02;
-    final activeWidth = screenWidth * 0.08;
 
+
+   final double  inActiveDotWidth =8.w;
+   final double  activeDotWidth =34.w;
     return Row(
       textDirection: TextDirection.rtl,
       mainAxisAlignment: MainAxisAlignment.center,
@@ -19,12 +21,12 @@ class DotsIndicator extends StatelessWidget {
         count,
             (index) => AnimatedContainer(
           duration: const Duration(milliseconds: 300),
-          margin:  EdgeInsets.symmetric(horizontal: dotSize / 2),
-          height: dotSize,
-          width: currentIndex == index ? activeWidth : dotSize,
+          margin:  EdgeInsets.symmetric(horizontal: 4.w),
+          height:8.h,
+          width: currentIndex == index ? activeDotWidth : inActiveDotWidth,
           decoration: BoxDecoration(
-            color: currentIndex == index ? const Color(0xff8B6F61) : Colors.grey,
-            borderRadius: BorderRadius.circular(dotSize / 2),
+            color: currentIndex == index ? ColorManager.orange : ColorManager.gray,
+            borderRadius: BorderRadius.circular(4.r),
           ),
         ),
       ),

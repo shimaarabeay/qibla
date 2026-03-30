@@ -1,5 +1,6 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:qibla/core/app/constants.dart';
 import 'package:qibla/core/presentation/resources/color_manager.dart';
 import 'package:qibla/core/presentation/resources/routes_manager.dart';
@@ -47,8 +48,7 @@ class _SplashViewState extends State<SplashView> with SingleTickerProviderStateM
 
   @override
   Widget build(BuildContext context) {
-    final screenWidth = MediaQuery.of(context).size.width;
-    final screenHeight = MediaQuery.of(context).size.height;
+
 
     return Scaffold(
       backgroundColor: const Color(0xffF6F2ED),
@@ -63,27 +63,27 @@ class _SplashViewState extends State<SplashView> with SingleTickerProviderStateM
                 Stack(
                   alignment: Alignment.center,
                   children: [
-                    Image.asset('assets/images/logo_background.png', width: screenWidth*0.6),
-                    Image.asset('assets/images/logo.png', width: screenWidth*0.4),
+                    Image.asset('assets/images/logo_background.png', width: 192.w,height: 128.h,),
+                    Image.asset('assets/images/logo.png', width:128.w),
                   ],
                 ),
-                const SizedBox(height: 20),
+                SizedBox(height: 20.h),
                 Text('القرآن الكريم', style: getNunitoStyle(
-                  fontSize: 38,
-                  color: ColorManager.brown,
+                  fontSize: 38.sp,
+                  color: ColorManager.orange,
                   fontWeight: FontWeight.bold,
                 )),
-                const SizedBox(height: 20),
+                SizedBox(height: 20.h),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    SizedBox(width: screenWidth * 0.15, child: Divider(color: ColorManager.liteOrange, thickness: 1)),
+                    SizedBox(width: 60.w, child: Divider(color: ColorManager.liteOrange, thickness: 1)),
                     Text(' THE NOBLE QURAN ', style: getNunitoStyle(
-                      fontSize: 14,
+                      fontSize: 14.sp,
                       color: ColorManager.liteOrange,
                       letterSpacing: 4,
                     )),
-                    SizedBox(width: screenWidth * 0.15, child: Divider(color: ColorManager.liteOrange, thickness: 1)),
+                    SizedBox(width: 60.w, child: Divider(color: ColorManager.liteOrange, thickness: 1)),
                   ],
                 ),
               ],

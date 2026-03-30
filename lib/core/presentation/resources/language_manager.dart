@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 
 enum LanguageType { ENGLISH, ARABIC }
-
 const String ARABIC = 'ar';
 const String ENGLISH = 'en';
 const String ASSTET_PATH_LOCALISATION = "assets/translations";

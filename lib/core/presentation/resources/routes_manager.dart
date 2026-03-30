@@ -1,13 +1,16 @@
 import 'package:flutter/material.dart';
-import 'package:qibla/core/app/di.dart';
-import 'package:qibla/features/home/presentation/view/home_view.dart';
+import 'package:qibla/features/home/presentation/view/main_view.dart';
+import 'package:qibla/features/home/presentation/view/widget/main_view_body.dart';
+import 'package:qibla/features/settings/presentation/view/settings_view.dart';
 import 'package:qibla/features/splash_onboarding/presentation/view/splash_view.dart';
 import '../../../features/splash_onboarding/presentation/view/onboarding_view.dart';
 
 class Routes {
   static const String splashRoute = "/splashRoute";
   static const String onboardingRoute = "/onboardingRoute";
+  static const String mainRoute = "/mainRoute";
   static const String homeRoute = "/homeRoute";
+  static const String settingsRoute = "/settingsRoute";
 }
 
 class RouteGenerator {
@@ -40,9 +43,12 @@ class RouteGenerator {
 
       case Routes.onboardingRoute:
         return buildSlideRoute(OnboardingView());
+      case Routes.settingsRoute:
+        return buildSlideRoute(SettingsView());
+      case Routes.mainRoute:
+        return buildSlideRoute(MainViewBody());//لازم اغيرها
 
-      case Routes.homeRoute:
-        return buildSlideRoute(HomeView());
+
 
       default:
         return unDefinedRoute();

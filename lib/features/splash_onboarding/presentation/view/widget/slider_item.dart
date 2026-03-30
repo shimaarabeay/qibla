@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:qibla/core/presentation/resources/color_manager.dart';
 import 'package:qibla/features/splash_onboarding/domain/models/onboarding_model.dart';
 
@@ -9,18 +10,17 @@ class SliderItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final screenHeight = MediaQuery.of(context).size.height;
-    final screenWidth = MediaQuery.of(context).size.width;
+
     return Column(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
         SizedBox(
-          height: screenHeight * 0.4,
-          width: screenWidth * 0.95,
+          height: 380.h,
+          width: 360.w,
           child: Stack(
             children: [
               ClipRRect(
-                borderRadius: BorderRadius.circular(16),
+                borderRadius: BorderRadius.circular(14.r),
                 child: Image.asset(
                   slider.imageUrl,
                   width: double.infinity,
@@ -34,24 +34,24 @@ class SliderItem extends StatelessWidget {
             ],
           ),
         ),
-        SizedBox(height: screenHeight * 0.03),
+        SizedBox(height: 10.h),
         Text(
           slider.title,
           textAlign: TextAlign.center,
           style: TextStyle(
-              fontSize: screenHeight * 0.028,
+              fontSize: 18.sp,
               fontWeight: FontWeight.bold,
-              color: ColorManager.primaryColor),
+              color: ColorManager.orange),
         ),
-        SizedBox(height: screenHeight * 0.015),
+        SizedBox(height:10.h),
         Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 20),
+          padding: EdgeInsets.symmetric(horizontal: 20.w),
           child: Text(
             slider.description,
             textAlign: TextAlign.center,
             style: TextStyle(
-              fontSize: screenHeight * 0.02,
-              color: Colors.grey,
+              fontSize: 16.sp,
+              color: ColorManager.white,
             ),
           ),
         ),

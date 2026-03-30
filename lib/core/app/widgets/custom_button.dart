@@ -11,6 +11,7 @@ class CustomButton extends StatelessWidget {
   const CustomButton({super.key, required this.onPressed, required this.text});
   final VoidCallback onPressed;
   final String text;
+
   @override
   Widget build(BuildContext context) {
     return SizedBox(
@@ -18,12 +19,13 @@ class CustomButton extends StatelessWidget {
       height: 54,
       child: TextButton(
         style: TextButton.styleFrom(
+          elevation: (0.5),
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(
               16,
             ),
           ),
-          backgroundColor: ColorManager.primaryColor,
+          backgroundColor: ColorManager.orange,
         ),
         onPressed: onPressed,
         child: Text(

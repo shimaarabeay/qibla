@@ -7,6 +7,7 @@ import 'package:qibla/core/app/di.dart';
 import '../presentation/resources/language_manager.dart';
 
 const String PREFS_KEY_LANG = 'PREFS_KEY_LANG';
+const String PREFS_KEY_THEME = 'PREFS_KEY_THEME';
 const String PREFS_KEY_IS_LOGGED_IN = 'PREFS_KEY_IS_LOGGED_IN';
 const String PREFS_KEY_NAME = 'PREFS_KEY_NAME';
 const String PREFS_KEY_PATH = 'PREFS_KEY_PATH';
@@ -95,14 +96,36 @@ class AppPreferences {
 
   Future<Locale> getLocal() async {
     String currentLang = await getAppLanguage();
+    // currentLang == ar.getValue
     if (currentLang == LanguageType.ARABIC.getValue()) {
       return ARABIC_LOCAL;
     } else {
       return ENGLISH_LOCAL;
     }
   }
+//================== THEME ==================//
+
+  Future<void> setThemeMode(ThemeMode mode) async {
+    await _writeString(PREFS_KEY_THEME, mode.name.toLowerCase());
+  }
+
+  Future<ThemeMode> getThemeMode() async {
+    final value = await _readString(PREFS_KEY_THEME);
+
+    switch (value) {
+      case 'dark':
+        return ThemeMode.dark;
+      case 'light':
+        return ThemeMode.light;
+      case 'system':
+        return ThemeMode.system;
+      default:
+        return ThemeMode.light; // default آمن
+    }
+  }
 
   //================== USER BASIC DATA ==================//
+
 
   Future<void> setUserName(String name) async {
     await _writeString(PREFS_KEY_NAME, name);

@@ -17,6 +17,7 @@ class _OnboardingViewState extends State<OnboardingView> {
   void initState() {
     super.initState();
     setOnBoardingViewed();
+    initAppModule();
   }
 
   void setOnBoardingViewed() {
@@ -27,7 +28,7 @@ class _OnboardingViewState extends State<OnboardingView> {
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (_) => OnBoardingCubit(),
+      create: (_) => instance<OnBoardingCubit>(),
       child: OnboardingViewBody(),
     );
   }

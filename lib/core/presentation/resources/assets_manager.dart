@@ -10,8 +10,8 @@ class ImageAssets {
   static const String onboard3="$imagePath/onboarding_3.png";
   static const String onboardLogo="$imagePath/onboarding_logo.png";
   static const String onboardLogo2="$imagePath/onboarding_logo2.png";
-  static const String onboardingIcon="$imagePath/Icon.png";
-
+  static const String onboardingIcon="$imagePath/onboarding_logo.png";
+  static const String settingIcon="$imagePath/setting_logo.png";
 
   //svgs
   static const String authLogo="$imagePath/logo.svg";

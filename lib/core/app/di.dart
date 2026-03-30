@@ -5,10 +5,14 @@ import 'package:get_it/get_it.dart';
 import 'package:qibla/core/app/app_prefs.dart';
 import 'package:qibla/core/data/network/dio_factory.dart';
 import 'package:qibla/core/data/network/network_info.dart';
+import 'package:qibla/core/presentation/theme/manager/theme_cubit.dart';
+import 'package:qibla/features/settings/presentation/manager/settings_cubit.dart';
+import 'package:qibla/features/splash_onboarding/presentation/manager/on_boarding_cubit.dart';
+import 'package:qibla/features/splash_onboarding/presentation/view/onboarding_view.dart';
 
 final instance = GetIt.instance;
 
-Future<void>  initAppModule() async {
+Future<void> initAppModule() async {
   // base dependencies
   const secureStorage = FlutterSecureStorage();
   instance.registerLazySingleton<FlutterSecureStorage>(() => secureStorage);
@@ -25,6 +29,15 @@ Future<void>  initAppModule() async {
   final dio = await instance<DioFactory>().getDio();
   instance.registerLazySingleton<Dio>(() => dio);
 
+  instance.registerFactory<OnBoardingCubit>(
+    () => OnBoardingCubit(),
+  );
+  instance.registerLazySingleton<SettingsCubit>(
+        () => SettingsCubit(),
+  );
+  instance.registerFactory<ThemeCubit>(
+        () => ThemeCubit(instance<AppPreferences>()),
+  );
 }
 
 // void initLoginModule() {
@@ -35,9 +48,7 @@ Future<void>  initAppModule() async {
 //   );
 // }
 
-
 Future<void> resetModules() async {
   instance.reset(dispose: false);
   await initAppModule();
-
 }

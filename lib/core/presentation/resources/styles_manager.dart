@@ -112,6 +112,26 @@ TextStyle getBoldMontserratStyle({
       decoration: decoration,
     );
 
+TextStyle getRegularGeneralStyle({
+  //for general text
+  double fontSize = FontSize.s20,
+  required Color color,
+  double? wordSpacing,
+  double? letterSpacing,
+  double? height,
+  TextDecoration? decoration,
+}) =>
+    _getMontserratStyle(
+      fontSize: fontSize,
+      color: color,
+      fontWeight: FontWeightManager.bold,
+      wordSpacing: wordSpacing,
+      letterSpacing: letterSpacing,
+      height: height,
+      decoration: decoration,
+    );
+
+
 TextStyle getExtraBoldMontserratStyle({
   double fontSize = FontSize.s12,
   required Color color,
@@ -265,7 +285,7 @@ TextStyle getExtraBoldNunitoStyle({
     );
 
 TextStyle getRegularStyle({
-  double fontSize = FontSize.s30,
+  double fontSize = FontSize.s16,
   required Color color,
   double? wordSpacing,
   double? letterSpacing,
@@ -275,7 +295,25 @@ TextStyle getRegularStyle({
     _getMontserratStyle(
       fontSize: fontSize,
       color: color,
-      fontWeight: FontWeightManager.light,
+      fontWeight: FontWeightManager.regular,
+      wordSpacing: wordSpacing,
+      letterSpacing: letterSpacing,
+      height: height,
+      decoration: decoration,
+    );
+//
+TextStyle getBoldStyle({
+  double fontSize = FontSize.s22,
+  required Color color,
+  double? wordSpacing,
+  double? letterSpacing,
+  double? height,
+  TextDecoration? decoration,
+}) =>
+    _getMontserratStyle(
+      fontSize: fontSize,
+      color: color,
+      fontWeight: FontWeightManager.bold,
       wordSpacing: wordSpacing,
       letterSpacing: letterSpacing,
       height: height,

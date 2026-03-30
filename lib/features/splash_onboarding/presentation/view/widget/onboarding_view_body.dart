@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:qibla/core/app/widgets/custom_button.dart';
 import 'package:qibla/core/presentation/resources/assets_manager.dart';
 import 'package:qibla/core/presentation/resources/color_manager.dart';
@@ -7,7 +8,8 @@ import 'package:qibla/core/presentation/resources/routes_manager.dart';
 import 'package:qibla/core/presentation/resources/styles_manager.dart';
 import 'package:qibla/core/presentation/resources/values_manager.dart';
 import 'package:qibla/features/splash_onboarding/presentation/manager/on_boarding_cubit.dart';
-import 'package:qibla/features/splash_onboarding/presentation/view/widget/dots_indicator.dart' show DotsIndicator;
+import 'package:qibla/features/splash_onboarding/presentation/view/widget/dots_indicator.dart'
+    show DotsIndicator;
 import 'package:qibla/features/splash_onboarding/presentation/view/widget/slider_item.dart';
 
 class OnboardingViewBody extends StatelessWidget {
@@ -15,27 +17,30 @@ class OnboardingViewBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    void navigateToHome() {
-      Navigator.pushReplacementNamed(context, Routes.homeRoute);
-    }
-    final screenHeight = MediaQuery.of(context).size.height;
+
     return Scaffold(
       body: SafeArea(
         child: BlocBuilder<OnBoardingCubit, OnBoardingState>(
           builder: (context, state) {
             final cubit = context.read<OnBoardingCubit>();
             return Padding(
-              padding: const EdgeInsets.all(8.0),
+              padding: EdgeInsets.all(8.w),
               child: Column(
                 children: [
-                  SizedBox(height: screenHeight * 0.05),
-                  Image.asset(ImageAssets.onboardingIcon,height: 40,width: 40,),
-                  SizedBox(height: screenHeight * 0.02),
-                  Text('القرآن الكريم', style: getNunitoStyle(
-                    fontSize: 20,
-                    color: ColorManager.brown,
-                    fontWeight: FontWeight.bold,
-                  )),SizedBox(height: screenHeight * 0.02),
+                  SizedBox(height: 10.h),
+                  Image.asset(
+                    ImageAssets.onboardingIcon,
+                    height: 60.h,
+                    width: 60.w,
+                  ),
+                  SizedBox(height: 10.h),
+                  Text('القرآن الكريم',
+                      style: getNunitoStyle(
+                        fontSize: 20.sp,
+                        color: ColorManager.orange,
+                        fontWeight: FontWeight.bold,
+                      )),
+                  SizedBox(height: 10.h),
                   Expanded(
                     child: PageView.builder(
                       reverse: true,
@@ -47,35 +52,36 @@ class OnboardingViewBody extends StatelessWidget {
                       },
                     ),
                   ),
-                  SizedBox(height: screenHeight * 0.02),
+                  SizedBox(height: 15.h),
                   DotsIndicator(
                     currentIndex: state.currentIndex,
                     count: cubit.sliderData.length,
                   ),
-                  SizedBox(height: screenHeight * 0.02),
+                  SizedBox(height: 20.h),
                   Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 20),
+                      padding: EdgeInsets.symmetric(horizontal: 20.w),
                       child: SizedBox(
                           width: double.infinity,
                           child: CustomButton(
                               onPressed: () {
                                 if (state.isLastPage) {
-                                  navigateToHome();
+                                  navigateToSettings(context);
                                 } else {
                                   cubit.goNext();
                                 }
                               },
                               text: state.isLastPage ? "ابدأ" : "التالي "))),
-                  TextButton(
-                    onPressed: navigateToHome,
-                    child: Text(
-                      "تخطي",
-                      style: getNunitoStyle(
-                          color: ColorManager.cadetGrey,
-                          fontSize: AppSize.s10),
+                  Center(
+                    child: SizedBox(
+                      height: 45.h,
+                      width: double.infinity.w,
+                      child: ElevatedButton(
+                          onPressed: () => navigateToSettings(context),
+                          child: Text("تخطي")
+
+                      ),
                     ),
                   ),
-                  SizedBox(height: screenHeight * 0.02),
                 ],
               ),
             );
@@ -83,5 +89,9 @@ class OnboardingViewBody extends StatelessWidget {
         ),
       ),
     );
+  }
+
+  void navigateToSettings(BuildContext context) {
+    Navigator.pushReplacementNamed(context, Routes.settingsRoute);
   }
 }
