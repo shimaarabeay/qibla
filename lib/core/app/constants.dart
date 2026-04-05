@@ -18,7 +18,8 @@ class Constants {
   static const Duration receiveTimeout = Duration(seconds: 20);
   static const Duration sendTimeout = Duration(seconds: 20);
   static const Duration timeDuration = Duration(seconds: 2);
-
+  static const String jsonFilePath = 'assets/json/quran.json';
+  static const String surahBox = 'surah_box';
 
 
 }

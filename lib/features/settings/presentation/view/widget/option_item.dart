@@ -23,29 +23,30 @@ class OptionItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final color = Theme.of(context);
     return GestureDetector(
       onTap: onTap,
       child: Container(
         width: width,
-        height: 80,
-        padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 12),
+        height: 80.h,
+        padding:EdgeInsets.symmetric(horizontal: 8.w, vertical: 12.h),
         decoration: BoxDecoration(
-          color: isSelected ? ColorManager.orange.withOpacity(0.12) : Colors.white70,
+          color: isSelected ? ColorManager.orange.withOpacity(0.12) :ColorManager.white.withOpacity(0.1),
           borderRadius: BorderRadius.circular(16),
           border: Border.all(
-            color: isSelected ? ColorManager.orange : Colors.black,
+            color: isSelected ? ColorManager.orange : color.colorScheme.secondary,
           ),
         ),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             if (icon != null) ...[
-              Icon(icon,color: isSelected ? ColorManager.orange : Colors.black,size: 20.sp,),
+              Icon(icon,color: isSelected ? ColorManager.orange :  color.colorScheme.secondary,size: 20.sp,),
             SizedBox(height: 3.h),
             ],
             Text(
               title,
-              style: getBoldStyle(color: isSelected ?ColorManager.orange : Colors.black,fontSize: FontSize.s18),
+              style: getBoldStyle(color: isSelected ?ColorManager.orange :  color.colorScheme.secondary,fontSize: FontSize.s18),
             ),
           ],
         ),

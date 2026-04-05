@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:qibla/core/presentation/resources/color_manager.dart';
+import 'package:qibla/features/home/presentation/view/audio_player_view.dart';
 import 'package:qibla/features/home/presentation/view/widget/custom_bottom_navigation_bar.dart';
-
+import 'package:qibla/core/presentation/widgets/custom_app_bar.dart';
 
 class MainViewBody extends StatefulWidget {
   const MainViewBody({super.key});
@@ -11,9 +13,8 @@ class MainViewBody extends StatefulWidget {
 
 class _HomeViewState extends State<MainViewBody> {
   int currentIndex = 0;
-
   final List<Widget> pages = [
-    Scaffold(),
+    AudioPlayerView(),
     Center(child: Text('الرئيسية')),
     Center(child: Text('المصحف')),
     Center(child: Text('القبلة')),
@@ -23,14 +24,50 @@ class _HomeViewState extends State<MainViewBody> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: pages[currentIndex],
-      bottomNavigationBar: CustomBottomNavigationBar(
-        onItemTapped: (index) {
-          setState(() {
-            currentIndex = index;
-          });
-        },
+    final List<AppBar> appBars = [
+      buildAppBar(
+        context,
+        title: 'Now Playing',
+        showBackButton: true,
+      ),
+      buildAppBar(
+        context,
+        title: 'المصحف',
+        showBackButton: true,
+      ),
+      buildAppBar(
+        context,
+        title: 'القبلة',
+        showBackButton: true,
+        actionIcon: IconButton(
+          icon: Icon(Icons.search, color: ColorManager.white),
+          onPressed: () {
+            print("Search Clicked");
+          },
+        ),
+      ),
+      buildAppBar(
+        context,
+        title: 'الإعدادات',
+        showBackButton: true,
+      ),
+      buildAppBar(
+        context,
+        title: 'المزيد',
+        showBackButton: true,
+      ),
+    ];
+    return SafeArea(
+      child: Scaffold(
+        appBar: appBars[currentIndex],
+        body: pages[currentIndex],
+        bottomNavigationBar: CustomBottomNavigationBar(
+          onItemTapped: (index) {
+            setState(() {
+              currentIndex = index;
+            });
+          },
+        ),
       ),
     );
   }

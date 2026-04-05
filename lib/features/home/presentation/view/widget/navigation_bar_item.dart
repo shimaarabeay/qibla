@@ -20,16 +20,16 @@ class NavigationBarItem extends StatelessWidget {
     final selectedLabelStyle = isSelected ? color.bottomNavigationBarTheme.selectedLabelStyle:  color.bottomNavigationBarTheme.unselectedLabelStyle;
 
     return AnimatedContainer(
-      duration: const Duration(milliseconds: 200),
+      duration: const Duration(milliseconds: 150),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Icon(
             bottomNavigationBarEntity.icon,
             color:selectedColor ,
-            size: isSelected ? 26.sp : 24.sp,
+            size: isSelected ? 20.sp : 16.sp,
           ),
-          const SizedBox(height: 4),
+           SizedBox(height: 4.h),
           Text(
             bottomNavigationBarEntity.name,
             style: selectedLabelStyle

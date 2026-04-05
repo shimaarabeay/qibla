@@ -52,7 +52,7 @@ class SettingsViewBody extends StatelessWidget {
                   child: Text(
                 "خصص تجربتك مع القرآن الكريم",
                 style: getRegularStyle(
-                    color: ColorManager.black, fontSize: FontSize.s14.sp),
+                    color:  color.colorScheme.secondary, fontSize: FontSize.s16.sp),
               )),
               SizedBox(height: 30.h),
               LanguageSection(),

@@ -17,7 +17,6 @@ class _OnboardingViewState extends State<OnboardingView> {
   void initState() {
     super.initState();
     setOnBoardingViewed();
-    initAppModule();
   }
 
   void setOnBoardingViewed() {

@@ -21,10 +21,10 @@ class _CustomBottomNavigationBarState extends State<CustomBottomNavigationBar> {
   Widget build(BuildContext context) {
     final color= Theme.of(context);
     return Padding(
-      padding: const EdgeInsets.all(8.0),
+      padding:  EdgeInsets.all(8.0.r),
       child: Container(
         width: double.infinity,
-        height: 70.h,
+        height: 60.h,
         decoration: ShapeDecoration(
           color: color.bottomNavigationBarTheme.backgroundColor,
           shape: RoundedRectangleBorder(
@@ -33,7 +33,7 @@ class _CustomBottomNavigationBarState extends State<CustomBottomNavigationBar> {
           shadows: [
             BoxShadow(
               color: ColorManager.streakOrange,
-              blurRadius: 10,
+              blurRadius: 10.r,
               offset: Offset(0, -1),
               spreadRadius: 0,
             )

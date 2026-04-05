@@ -49,9 +49,9 @@ class _SplashViewState extends State<SplashView> with SingleTickerProviderStateM
   @override
   Widget build(BuildContext context) {
 
-
+    final color = Theme.of(context);
     return Scaffold(
-      backgroundColor: const Color(0xffF6F2ED),
+      backgroundColor:  color.colorScheme.background,
       body: FadeTransition(
         opacity: fadeAnimation,
         child: ScaleTransition(
@@ -80,7 +80,7 @@ class _SplashViewState extends State<SplashView> with SingleTickerProviderStateM
                     SizedBox(width: 60.w, child: Divider(color: ColorManager.liteOrange, thickness: 1)),
                     Text(' THE NOBLE QURAN ', style: getNunitoStyle(
                       fontSize: 14.sp,
-                      color: ColorManager.liteOrange,
+                      color: ColorManager.orange,
                       letterSpacing: 4,
                     )),
                     SizedBox(width: 60.w, child: Divider(color: ColorManager.liteOrange, thickness: 1)),
