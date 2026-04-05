@@ -20,7 +20,7 @@ class ThemeSection extends StatelessWidget {
         OptionItem(
           title: "النظام",
           icon: Icons.settings,
-          isSelected: false,
+          isSelected: cubit.isSelected(ThemeMode.system),
           onTap: () {
             cubit.updateTheme(ThemeMode.system);
           },
@@ -30,7 +30,7 @@ class ThemeSection extends StatelessWidget {
         OptionItem(
           title: "داكن",
           icon: Icons.dark_mode,
-          isSelected: false,
+          isSelected:  cubit.isSelected(ThemeMode.dark),
           onTap: () {
             cubit.updateTheme(ThemeMode.dark);
           },
@@ -40,7 +40,7 @@ class ThemeSection extends StatelessWidget {
         OptionItem(
           title: "فاتح",
           icon: Icons.light_mode,
-          isSelected: true,
+          isSelected: cubit.isSelected(ThemeMode.light),
           onTap: () {
             cubit.updateTheme(ThemeMode.light);
           },
