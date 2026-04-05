@@ -41,7 +41,7 @@ dependencies:
   # Dependency Injection
   get_it: ^9.0.5
   # Automatically generate code for converting to and from JSON by annotating Dart classes
-  json_serializable: ^6.11.1
+  json_serializable: ^6.8.0
   json_annotation: ^4.9.0
 
   # Networking
@@ -76,10 +76,17 @@ dependencies:
   permission_handler: ^12.0.1
   geolocator: ^10.1.0
   cupertino_icons: ^1.0.8
+  hive: ^2.2.3
+  hive_flutter: ^1.1.0
+  audioplayers: ^6.6.0
+  audio_service: ^0.18.18
+
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
+  hive_generator: ^2.0.1
+  build_runner: ^2.4.8
 
   # The "flutter_lints" package below contains a set of recommended lints to
   # encourage good coding practices. The lint set provided by the package is
@@ -103,6 +110,7 @@ flutter:
   assets:
     - assets/translations/
     - assets/images/
+    - assets/json/quran.json
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/to/resolution-aware-images
