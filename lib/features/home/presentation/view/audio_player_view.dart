@@ -2,7 +2,8 @@
 
 import 'package:flutter/material.dart';
 
-import 'package:qibla/features/home/presentation/view/widget/audio_player_body.dart';
+import 'widget/audio_play_widgets/audio_player_body.dart';
+
 
 class AudioPlayerView extends StatelessWidget {
   const AudioPlayerView({super.key});

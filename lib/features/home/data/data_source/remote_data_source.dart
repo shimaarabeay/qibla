@@ -4,23 +4,23 @@ import 'dart:convert';
 
 import 'package:flutter/services.dart';
 
-import '../models/surah_model.dart';
+import '../models/audio_model/audio_model.dart';
 
-abstract class SurahRemoteDataSource {
-  Future<List<SurahModel>> fetchSurahs();
+abstract class AudioRemoteDataSource {
+  Future<List<AudioModel>> fetchSurahs();
 }
 
 
-class SurahRemoteDataSourceImpl implements SurahRemoteDataSource {
+class AudioRemoteDataSourceImpl implements AudioRemoteDataSource {
   final String jsonPath;
 
-  SurahRemoteDataSourceImpl({this.jsonPath = 'assets/json/quran.json'});
+  AudioRemoteDataSourceImpl({this.jsonPath = 'assets/json/quran.json'});
 
   @override
-  Future<List<SurahModel>> fetchSurahs() async {
+  Future<List<AudioModel>> fetchSurahs() async {
     final String response = await rootBundle.loadString(jsonPath);
     final List<dynamic> data = json.decode(response);
-    return data.map((json) => SurahModel.fromJson(json)).toList();
+    return data.map((json) => AudioModel.fromJson(json)).toList();
   }
 }
 

@@ -20,6 +20,11 @@ class Constants {
   static const Duration timeDuration = Duration(seconds: 2);
   static const String jsonFilePath = 'assets/json/quran.json';
   static const String surahBox = 'surah_box';
+  static const String audioPath = "assets/quran_master/audio/";
+  static const String surahPath = "assets/quran_master/surah/surah_";
+  static const String allSurahsPath = "assets/quran_master/surah/";
+  static const String tafsirPath = 'assets/quran_master/translation/ar/ar_translation_';
+
 
 
 }

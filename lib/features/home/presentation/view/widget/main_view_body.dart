@@ -4,6 +4,8 @@ import 'package:qibla/features/home/presentation/view/audio_player_view.dart';
 import 'package:qibla/features/home/presentation/view/widget/custom_bottom_navigation_bar.dart';
 import 'package:qibla/core/presentation/widgets/custom_app_bar.dart';
 
+import '../quran_read_view.dart';
+
 class MainViewBody extends StatefulWidget {
   const MainViewBody({super.key});
 
@@ -15,7 +17,7 @@ class _HomeViewState extends State<MainViewBody> {
   int currentIndex = 0;
   final List<Widget> pages = [
     AudioPlayerView(),
-    Center(child: Text('الرئيسية')),
+    QuranReadView(),
     Center(child: Text('المصحف')),
     Center(child: Text('القبلة')),
     Center(child: Text('الإعدادات')),

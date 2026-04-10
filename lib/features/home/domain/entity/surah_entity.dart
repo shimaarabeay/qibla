@@ -1,20 +1,13 @@
+import 'ayah_entity.dart';
 
 class SurahEntity {
+  final int surahNumber;
   final String name;
-  final Map<String, String> nameTranslations;
-  final int numberOfAyah;
-  final int numberOfSurah;
-  final String place;
-  final String recitation;
-  final String type;
+  final List<AyahEntity> ayahs;
 
   SurahEntity({
+    required this.surahNumber,
     required this.name,
-    required this.nameTranslations,
-    required this.numberOfAyah,
-    required this.numberOfSurah,
-    required this.place,
-    required this.recitation,
-    required this.type,
+    required this.ayahs,
   });
 }

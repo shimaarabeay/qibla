@@ -5,6 +5,8 @@ import 'package:qibla/core/presentation/theme/manager/theme_cubit.dart';
 import 'package:qibla/features/settings/presentation/view/widget/option_item.dart';
 import 'package:qibla/features/settings/presentation/view/widget/settings_option_section.dart';
 
+import '../../../../../core/presentation/theme/manager/theme_state.dart';
+
 class ThemeSection extends StatelessWidget {
   const ThemeSection({
     super.key,
@@ -12,6 +14,8 @@ class ThemeSection extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+
+  return BlocBuilder<ThemeCubit ,ThemeState >(builder: (context, state) {
     final cubit = context.read<ThemeCubit>();
 
     return OptionSection(
@@ -48,5 +52,6 @@ class ThemeSection extends StatelessWidget {
         ),
       ],
     );
+  },);
   }
 }

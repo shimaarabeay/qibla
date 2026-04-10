@@ -171,7 +171,6 @@ bool detectTextLanguageIsEnMore(String text) {
   return englishCount > arabicCount;
 }
 
-
 void setStatusBarWhiteIcons() {
   SystemChrome.setSystemUIOverlayStyle(
     const SystemUiOverlayStyle(

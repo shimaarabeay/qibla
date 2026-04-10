@@ -7,12 +7,15 @@ import 'package:hive/hive.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:qibla/core/app/services/hive_service.dart';
 import 'package:qibla/core/app/services/hive_service_impl.dart';
+import 'package:qibla/features/home/data/repositories/surah_repo_impl.dart';
+import 'package:qibla/features/home/domain/repositories/surah_repo.dart';
+import 'package:qibla/features/home/presentation/manager/quran_read_cubit/surah_cubit.dart';
 
 import '../../features/home/data/data_source/remote_data_source.dart';
-import '../../features/home/data/data_source/surah_local_data_source.dart';
-import '../../features/home/data/models/surah_model.dart';
-import '../../features/home/data/repositories/surah_repository_impl.dart';
-import '../../features/home/domain/repositories/surah_repository.dart';
+import '../../features/home/data/data_source/local_data_source.dart';
+import '../../features/home/data/models/audio_model/audio_model.dart';
+import '../../features/home/data/repositories/audio_repository_impl.dart';
+import '../../features/home/domain/repositories/audio_repository.dart';
 import '../../features/settings/presentation/manager/settings_cubit.dart';
 import '../../features/splash_onboarding/presentation/manager/on_boarding_cubit.dart';
 import '../data/network/dio_factory.dart';
@@ -44,30 +47,38 @@ Future<void> initAppModule() async {
   instance.registerFactory<ThemeCubit>(
       () => ThemeCubit(instance<AppPreferences>()));
 //----------------------------Surah_______________________________
-  Hive.registerAdapter(SurahModelAdapter());
+  Hive.registerAdapter(AudioModelAdapter());
 
 // ================= Hive =================
-  instance.registerLazySingleton<HiveService<SurahModel>>(
-        () => HiveServiceImpl<SurahModel>(),
+  instance.registerLazySingleton<HiveService<AudioModel>>(
+        () => HiveServiceImpl<AudioModel>(),
   );
 
 // ================= Local =================
-  instance.registerLazySingleton<SurahLocalDataSource>(
-        () => SurahLocalDataSourceImpl(
-      hiveService: instance<HiveService<SurahModel>>(),
+  instance.registerLazySingleton<AudioLocalDataSource>(
+        () => AudioLocalDataSourceImpl(
+      hiveService: instance<HiveService<AudioModel>>(),
     ),
+  );
+   /// surah_cubit
+  instance.registerLazySingleton<SurahRepository>(
+          () => SurahRepositoryImpl()
+  );
+
+  instance.registerFactory<SurahCubit>(
+        () => SurahCubit( repository:instance<SurahRepository>(),)
   );
 
 // ================= Remote =================
-  instance.registerLazySingleton<SurahRemoteDataSource>(
-        () => SurahRemoteDataSourceImpl(),
+  instance.registerLazySingleton<AudioRemoteDataSource>(
+        () => AudioRemoteDataSourceImpl(),
   );
 
 // ================= Repository =================
-  instance.registerLazySingleton<SurahRepository>(
-        () => SurahRepositoryImpl(
-      localDataSource: instance<SurahLocalDataSource>(),
-      remoteDataSource: instance<SurahRemoteDataSource>(),
+  instance.registerLazySingleton<AudioRepository>(
+        () => AudioRepositoryImpl(
+      localDataSource: instance<AudioLocalDataSource>(),
+      remoteDataSource: instance<AudioRemoteDataSource>(),
     ),
   );
 }

@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:qibla/features/home/presentation/view/widget/main_view_body.dart';
-
 import '../../../../core/app/di.dart';
-import '../../domain/repositories/surah_repository.dart';
-import '../manager/cubit/surah_cubit.dart';
+import '../../domain/repositories/audio_repository.dart';
+import '../manager/audio_cubit/audio_cubit.dart';
+
 
 
 class MainView extends StatelessWidget {
@@ -14,7 +14,7 @@ class MainView extends StatelessWidget {
     return
       BlocProvider(
         create: (context) =>
-    SurahCubit(repository: instance<SurahRepository>())..init(),
+        AudioCubit(repository: instance<AudioRepository>())..init(),
      child:  MainViewBody ());
   }
 }

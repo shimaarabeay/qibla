@@ -3,14 +3,13 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:hive/hive.dart';
 import 'package:hive_flutter/hive_flutter.dart';
-
 import 'package:qibla/core/presentation/resources/routes_manager.dart';
 import 'package:qibla/core/presentation/theme/manager/theme_cubit.dart';
 import 'package:qibla/core/presentation/theme/manager/theme_state.dart';
 import 'package:qibla/core/presentation/theme/theme_app.dart';
-import 'package:qibla/features/home/presentation/manager/cubit/surah_cubit.dart';
 import 'core/app/di.dart';
 import 'core/app/app_prefs.dart';
+import 'features/home/presentation/manager/audio_cubit/audio_cubit.dart';
 
 
 Future<void> main() async {
@@ -38,7 +37,7 @@ class MyApp extends StatelessWidget {
               create: (_) => instance<ThemeCubit>(),
             ),
             BlocProvider(
-              create: (_) => instance<SurahCubit>(),
+              create: (_) => instance<AudioCubit>(),
             ),
 
           ],
