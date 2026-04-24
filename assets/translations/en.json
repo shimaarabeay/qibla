@@ -1,0 +1,32 @@
+{
+  "app": {
+    "quran": "The Noble Quran"
+  },
+  "onboarding": {
+    "next": "Next",
+    "start": "Start",
+    "skip": "Skip"
+  },
+  "settings": {
+    "title": "Language & Appearance Settings",
+    "subtitle": "Customize your Quran experience",
+    "confirm": "Confirm",
+    "skip": "Skip",
+    "language": "Choose Language",
+    "english": "English",
+    "arabic": "Arabic",
+    "appearance": "Appearance",
+    "system": "System",
+    "dark": "Dark",
+    "light": "Light"
+  },
+  "home": {
+    "listen": "Listen",
+    "more": "More",
+    "quran": "Quran",
+    "mushaf": "Mushaf",
+    "tasbeeh": "Tasbeeh",
+    "view_all": "View All",
+    "reset": "Reset"
+  }
+}

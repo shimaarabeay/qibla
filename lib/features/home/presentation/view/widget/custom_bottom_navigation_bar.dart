@@ -5,57 +5,78 @@ import 'package:qibla/features/home/domain/entity/bottom_navigation_bar_entity.d
 
 import 'navigation_bar_item.dart';
 
-
 class CustomBottomNavigationBar extends StatefulWidget {
-  const CustomBottomNavigationBar({super.key, required this.onItemTapped});
+  const CustomBottomNavigationBar({
+    super.key,
+    required this.onItemTapped,
+  });
+
   final ValueChanged<int> onItemTapped;
+
   @override
   State<CustomBottomNavigationBar> createState() =>
       _CustomBottomNavigationBarState();
 }
 
-class _CustomBottomNavigationBarState extends State<CustomBottomNavigationBar> {
+class _CustomBottomNavigationBarState
+    extends State<CustomBottomNavigationBar> {
   int selectedIndex = 0;
 
   @override
   Widget build(BuildContext context) {
-    final color= Theme.of(context);
+    final theme = Theme.of(context);
+
     return Padding(
-      padding:  EdgeInsets.all(8.0.r),
+      padding: EdgeInsets.all(8.0.r),
       child: Container(
         width: double.infinity,
         height: 60.h,
         decoration: ShapeDecoration(
-          color: color.bottomNavigationBarTheme.backgroundColor,
+          color: theme.bottomNavigationBarTheme.backgroundColor,
           shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(10.r)
+            borderRadius: BorderRadius.circular(10.r),
           ),
           shadows: [
             BoxShadow(
-              color: ColorManager.streakOrange,
+              color: ColorManager.streakOrange.withOpacity(0.4),
               blurRadius: 10.r,
-              offset: Offset(0, -1),
-              spreadRadius: 0,
+              offset: const Offset(0, -1),
             )
           ],
         ),
+
         child: Row(
           children: bottomNavigationBarItems.asMap().entries.map((e) {
-            var index = e.key;
-            var entity = e.value;
+            final index = e.key;
+            final entity = e.value;
+
+            final isSelected = selectedIndex == index;
 
             return Expanded(
-              flex: index == selectedIndex ? 3 : 2,
-              child: GestureDetector(
-                onTap: () {
-                  setState(() {
-                    selectedIndex = index;
+              flex: isSelected ? 3 : 2,
+
+
+              child: Material(
+                color: Colors.transparent,
+                child: InkWell(
+                  borderRadius: BorderRadius.circular(10.r),
+
+                  onTap: () {
+                    if (selectedIndex == index) return;
+
+                    setState(() {
+                      selectedIndex = index;
+                    });
+
                     widget.onItemTapped(index);
-                  });
-                },
-                child: NavigationBarItem(
-                  isSelected: selectedIndex == index,
-                  bottomNavigationBarEntity: entity,
+                  },
+
+                  child: Center(
+                    child: NavigationBarItem(
+                      isSelected: isSelected,
+                      bottomNavigationBarEntity: entity,
+                    ),
+                  ),
                 ),
               ),
             );

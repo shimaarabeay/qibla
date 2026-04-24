@@ -9,7 +9,7 @@ AppBar buildAppBar(
       Widget? actionIcon,
     }) {
   return AppBar(
-    backgroundColor: ColorManager.brown.withOpacity(0.18),
+    backgroundColor: ColorManager.orange.withOpacity(0.50),
     leading: Visibility(
       visible: showBackButton,
       child: GestureDetector(

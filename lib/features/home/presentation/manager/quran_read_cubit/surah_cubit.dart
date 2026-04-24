@@ -8,15 +8,7 @@ class SurahCubit extends Cubit<SurahState> {
   final SurahRepository repository;
 
   SurahCubit({required this.repository}) : super(const SurahState()) {
-    init();
-  }
-  Future<void> init() async {
-    final numbers = await repository.getAllSurahNumbers();
-    emit(state.copyWith(
-      surahNumbers: numbers,
-    ));
-
-    fetchSurah(numbers.first);
+    fetchSurah(1);
   }
 
   Future<void> fetchSurah(int surahNumber) async {

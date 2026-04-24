@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -6,7 +7,6 @@ import 'package:qibla/core/presentation/resources/assets_manager.dart';
 import 'package:qibla/core/presentation/resources/color_manager.dart';
 import 'package:qibla/core/presentation/resources/routes_manager.dart';
 import 'package:qibla/core/presentation/resources/styles_manager.dart';
-import 'package:qibla/core/presentation/resources/values_manager.dart';
 import 'package:qibla/features/splash_onboarding/presentation/manager/on_boarding_cubit.dart';
 import 'package:qibla/features/splash_onboarding/presentation/view/widget/dots_indicator.dart'
     show DotsIndicator;
@@ -17,7 +17,6 @@ class OnboardingViewBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-
     return Scaffold(
       body: SafeArea(
         child: BlocBuilder<OnBoardingCubit, OnBoardingState>(
@@ -34,7 +33,7 @@ class OnboardingViewBody extends StatelessWidget {
                     width: 60.w,
                   ),
                   SizedBox(height: 10.h),
-                  Text('القرآن الكريم',
+                  Text('app.quran'.tr(),
                       style: getNunitoStyle(
                         fontSize: 20.sp,
                         color: ColorManager.orange,
@@ -70,16 +69,14 @@ class OnboardingViewBody extends StatelessWidget {
                                   cubit.goNext();
                                 }
                               },
-                              text: state.isLastPage ? "ابدأ" : "التالي "))),
+                              text: state.isLastPage ? "onboarding.start".tr() : "onboarding.next".tr()))),
                   Center(
                     child: SizedBox(
                       height: 45.h,
                       width: double.infinity.w,
                       child: ElevatedButton(
                           onPressed: () => navigateToSettings(context),
-                          child: Text("تخطي")
-
-                      ),
+                          child: Text("onboarding.skip".tr())),
                     ),
                   ),
                 ],

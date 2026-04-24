@@ -1,0 +1,29 @@
+<shortcuts xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <shortcut
+        android:shortcutId="listening"
+        android:enabled="true"
+        android:icon="@mipmap/ic_launcher"
+        android:shortcutShortLabel="@string/listen"
+        android:shortcutLongLabel="@string/listen_quran">
+
+        <intent
+            android:action="android.intent.action.VIEW"
+            android:targetPackage="com.example.qibla"
+            android:targetClass="com.example.qibla.MainActivity" />
+    </shortcut>
+
+    <shortcut
+        android:shortcutId="quran"
+        android:enabled="true"
+        android:icon="@mipmap/ic_launcher"
+        android:shortcutShortLabel="@string/quran"
+        android:shortcutLongLabel="@string/read_quran">
+
+        <intent
+            android:action="android.intent.action.VIEW"
+            android:targetPackage="com.example.qibla"
+            android:targetClass="com.example.qibla.MainActivity" />
+    </shortcut>
+
+</shortcuts>

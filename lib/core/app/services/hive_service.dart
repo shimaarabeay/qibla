@@ -1,5 +1,3 @@
-import 'package:hive/hive.dart';
-
 abstract class HiveService<T> {
   Future<void> openBox({required String boxName});
 

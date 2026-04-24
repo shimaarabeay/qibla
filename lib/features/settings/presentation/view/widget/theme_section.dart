@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -19,10 +20,10 @@ class ThemeSection extends StatelessWidget {
     final cubit = context.read<ThemeCubit>();
 
     return OptionSection(
-      title: "المظهر",
+      title: "settings.appearance".tr(),
       options: [
         OptionItem(
-          title: "النظام",
+          title: "settings.system".tr(),
           icon: Icons.settings,
           isSelected: cubit.isSelected(ThemeMode.system),
           onTap: () {
@@ -32,7 +33,7 @@ class ThemeSection extends StatelessWidget {
         ),
         Spacer(),
         OptionItem(
-          title: "داكن",
+          title: "settings.dark".tr(),
           icon: Icons.dark_mode,
           isSelected:  cubit.isSelected(ThemeMode.dark),
           onTap: () {
@@ -42,7 +43,7 @@ class ThemeSection extends StatelessWidget {
         ),
         Spacer(),
         OptionItem(
-          title: "فاتح",
+          title: "settings.light".tr(),
           icon: Icons.light_mode,
           isSelected: cubit.isSelected(ThemeMode.light),
           onTap: () {

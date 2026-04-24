@@ -1,9 +1,7 @@
-
 import 'package:connectivity_plus/connectivity_plus.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:get_it/get_it.dart';
-import 'package:hive/hive.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:qibla/core/app/services/hive_service.dart';
 import 'package:qibla/core/app/services/hive_service_impl.dart';
@@ -16,6 +14,7 @@ import '../../features/home/data/data_source/local_data_source.dart';
 import '../../features/home/data/models/audio_model/audio_model.dart';
 import '../../features/home/data/repositories/audio_repository_impl.dart';
 import '../../features/home/domain/repositories/audio_repository.dart';
+import '../../features/home/presentation/manager/tasbeeh_cubit/tasbeeh_cubit.dart';
 import '../../features/settings/presentation/manager/settings_cubit.dart';
 import '../../features/splash_onboarding/presentation/manager/on_boarding_cubit.dart';
 import '../data/network/dio_factory.dart';
@@ -51,32 +50,32 @@ Future<void> initAppModule() async {
 
 // ================= Hive =================
   instance.registerLazySingleton<HiveService<AudioModel>>(
-        () => HiveServiceImpl<AudioModel>(),
+    () => HiveServiceImpl<AudioModel>(),
   );
 
 // ================= Local =================
   instance.registerLazySingleton<AudioLocalDataSource>(
-        () => AudioLocalDataSourceImpl(
+    () => AudioLocalDataSourceImpl(
       hiveService: instance<HiveService<AudioModel>>(),
     ),
   );
-   /// surah_cubit
-  instance.registerLazySingleton<SurahRepository>(
-          () => SurahRepositoryImpl()
-  );
 
-  instance.registerFactory<SurahCubit>(
-        () => SurahCubit( repository:instance<SurahRepository>(),)
-  );
+  /// surah_cubit
+  instance.registerLazySingleton<SurahRepository>(() => SurahRepositoryImpl());
+
+  instance.registerFactory<SurahCubit>(() => SurahCubit(
+        repository: instance<SurahRepository>(),
+      ));
 
 // ================= Remote =================
   instance.registerLazySingleton<AudioRemoteDataSource>(
-        () => AudioRemoteDataSourceImpl(),
+    () => AudioRemoteDataSourceImpl(),
   );
+  instance.registerLazySingleton<TasbeehCubit>(() => TasbeehCubit());
 
 // ================= Repository =================
   instance.registerLazySingleton<AudioRepository>(
-        () => AudioRepositoryImpl(
+    () => AudioRepositoryImpl(
       localDataSource: instance<AudioLocalDataSource>(),
       remoteDataSource: instance<AudioRemoteDataSource>(),
     ),

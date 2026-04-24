@@ -1,5 +1,6 @@
 import 'dart:developer';
 
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -43,14 +44,14 @@ class SettingsViewBody extends StatelessWidget {
               SizedBox(height: 20.h),
               Center(
                 child: Text(
-                  "إعدادات اللغة والمظهر",
+                  "settings.title".tr(),
                   style: getBoldMontserratStyle(
                       color: ColorManager.orange, fontSize: FontSize.s22.sp),
                 ),
               ),
               Center(
                   child: Text(
-                "خصص تجربتك مع القرآن الكريم",
+                    "settings.subtitle".tr(),
                 style: getRegularStyle(
                     color:  color.colorScheme.secondary, fontSize: FontSize.s16.sp),
               )),
@@ -59,7 +60,7 @@ class SettingsViewBody extends StatelessWidget {
               SizedBox(height: 30.h),
               ThemeSection(),
               const Spacer(),
-              CustomButton(onPressed: () {}, text: 'تأكيد'),
+              CustomButton(onPressed: () {}, text: "settings.confirm".tr()),
               SizedBox(
                 height: 10.h,
               ),
@@ -72,7 +73,7 @@ class SettingsViewBody extends StatelessWidget {
                       Navigator.pushReplacementNamed(context, Routes.mainRoute);
                     },
                     child: Text(
-                      "تخطى",
+                      "settings.skip".tr(),
                     ),
                   ),
                 ),

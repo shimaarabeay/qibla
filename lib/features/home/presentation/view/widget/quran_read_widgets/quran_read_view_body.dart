@@ -25,7 +25,8 @@ class QuranReadBody extends StatelessWidget {
 
               if (state.status == SurahStatus.error) {
                 return Center(child: Text(state.errorMessage));
-لهف
+              }
+
               if (state.status == SurahStatus.loaded &&
                   state.surah != null) {
                 final surah = state.surah!;
@@ -56,7 +57,7 @@ class QuranReadBody extends StatelessWidget {
                                   ),
                                 ),
 
-                                // رقم الآية
+
                                 WidgetSpan(
                                   alignment:
                                   PlaceholderAlignment.middle,
@@ -87,6 +88,7 @@ class QuranReadBody extends StatelessWidget {
                   ],
                 );
               }
+
               return const SizedBox();
             },
           );

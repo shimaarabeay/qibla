@@ -75,7 +75,6 @@ class ProgressBarWidget extends StatelessWidget {
             ],
           );
         } else {
-          // حالة قبل بدء التشغيل
           return Column(
             children: [
               SliderTheme(

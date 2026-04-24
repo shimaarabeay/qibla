@@ -25,8 +25,6 @@ class PlayerControls extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             SizedBox(width: 20.w),
-
-            /// ⏮ Previous
             IconButton(
               icon: Icon(
                 Icons.skip_previous,
@@ -38,13 +36,12 @@ class PlayerControls extends StatelessWidget {
 
             const Spacer(),
 
-            /// ▶️ Play / Pause
             GestureDetector(
               onTap: () {
                 if (isPlaying) {
                   cubit.pause();
                 } else {
-                  cubit.resume(); // 👈 يكمل من نفس المكان
+                  cubit.resume();
                 }
               },
               child: Container(
@@ -65,7 +62,6 @@ class PlayerControls extends StatelessWidget {
 
             const Spacer(),
 
-            /// ⏭ Next
             IconButton(
               icon: Icon(
                 Icons.skip_next,

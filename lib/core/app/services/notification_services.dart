@@ -1,89 +1,48 @@
-// import 'dart:convert';
-// import 'package:firebase_messaging/firebase_messaging.dart';
-// import 'package:flutter_local_notifications/flutter_local_notifications.dart';
-// import 'package:qibla/core/app/constants.dart';
-//
-// /// Handles push and local notifications.
-// class NotificationServices {
-//   static final FirebaseMessaging _messaging = FirebaseMessaging.instance;
-//   static final FlutterLocalNotificationsPlugin
-//   _flutterLocalNotificationsPlugin = FlutterLocalNotificationsPlugin();
-//
-//   /// Initializes the notification services.
-//   static Future<void> initNotification() async {
-//     await _messaging.requestPermission();
-//
-//     const settings = InitializationSettings(
-//       android: AndroidInitializationSettings('@mipmap/ic_launcher'),
-//       iOS: DarwinInitializationSettings(),
-//     );
-//
-//     _flutterLocalNotificationsPlugin.initialize(
-//       settings,
-//       onDidReceiveNotificationResponse: _onReceiveNotificationResponse,
-//       onDidReceiveBackgroundNotificationResponse:
-//           _onReceiveNotificationResponse,
-//     );
-//
-//     FirebaseMessaging.onBackgroundMessage(_handleBackgroundMessage);
-//   }
-//
-//   /// Gets the current device FCM token.
-//   static Future<String> getUserDeviceToken() async {
-//     return await _messaging.getToken() ?? "";
-//   }
-//
-//
-//   /// Handles local notification tap.
-//   static Future<void> _onReceiveNotificationResponse(
-//     NotificationResponse notificationResponse,
-//   ) async {
-//     try {
-//       if (notificationResponse.payload != null) {
-//         final data = jsonDecode(notificationResponse.payload!);
-//         _performNavigation(data);
-//       }
-//     } catch (e) {
-//       //print('❌ Error parsing payload: $e');
-//     }
-//   }
-//   /// Handles FCM message when app is in foreground.
-//   static Future<void> handleForegroundMessage() async {
-//     FirebaseMessaging.onMessage.listen(_showBasicNotification);
-//   }
-//
-//   /// Handles when app receives background FCM message.
-//   static Future<void> _handleBackgroundMessage(RemoteMessage message) async {}
-//
-//   /// Performs navigation based on notification data.
-//   static Future<void> _performNavigation(Map<String, dynamic> data) async {}
-//
-//   /// Shows basic notification when app is in foreground.
-//   static Future<void> _showBasicNotification(RemoteMessage message) async {
-//     final details = NotificationDetails(
-//       android: AndroidNotificationDetails(
-//         Constants.basicChannelId,
-//         Constants.basicChannelName,
-//         importance: Importance.max,
-//         priority: Priority.max,
-//         playSound: true,
-//         colorized: true,
-//         // sound: const RawResourceAndroidNotificationSound(
-//         //     Constants.notificationSound),
-//       ),
-//       iOS: const DarwinNotificationDetails(
-//         presentAlert: true,
-//         presentBadge: true,
-//         presentSound: true,
-//       ),
-//     );
-//
-//     await _flutterLocalNotificationsPlugin.show(
-//       message.messageId.hashCode,
-//       message.notification?.title,
-//       message.notification?.body,
-//       details,
-//       payload: jsonEncode(message.data),
-//     );
-//   }
-// }
+import 'package:firebase_core/firebase_core.dart';
+import 'package:firebase_messaging/firebase_messaging.dart';
+import 'package:flutter_local_notifications/flutter_local_notifications.dart';
+
+class NotificationService {
+  static final _plugin = FlutterLocalNotificationsPlugin();
+
+  static const _channel = AndroidNotificationChannel(
+    'high_importance_channel',
+    'High Importance Notifications',
+    description: 'Important notifications',
+    importance: Importance.max,
+  );
+
+  static Future<void> init() async {
+    const android = AndroidInitializationSettings('@mipmap/ic_launcher');
+    const settings = InitializationSettings(android: android);
+    await _plugin.initialize(settings: settings);
+    await _plugin
+        .resolvePlatformSpecificImplementation<
+            AndroidFlutterLocalNotificationsPlugin>()
+        ?.createNotificationChannel(_channel);
+  }
+
+  static Future<void> show(String title, String body) async {
+    const androidDetails = AndroidNotificationDetails(
+      'high_importance_channel',
+      'High Importance Notifications',
+      channelDescription: 'Important notifications',
+      importance: Importance.max,
+      priority: Priority.high,
+    );
+
+    const details = NotificationDetails(android: androidDetails);
+    await _plugin.show(
+      id: 0,
+      title: title,
+      body: body,
+      notificationDetails: details,
+    );
+  }
+}
+
+//////////////////////////////////////////////////////////////////////////function///////////////////////////////////
+Future<void> bgHandler(RemoteMessage message) async {
+  await Firebase.initializeApp();
+  print("BG MESSAGE: ${message.messageId}");
+}

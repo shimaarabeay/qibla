@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -16,8 +17,6 @@ class SplashViewBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final color = Theme.of(context);
-
     return FadeTransition(
       opacity: fadeAnimation,
       child: ScaleTransition(
@@ -26,7 +25,6 @@ class SplashViewBody extends StatelessWidget {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              // شعار متداخل
               Stack(
                 alignment: Alignment.center,
                 children: [
@@ -43,7 +41,7 @@ class SplashViewBody extends StatelessWidget {
               ),
               SizedBox(height: 20.h),
               Text(
-                'القرآن الكريم',
+               'app.quran'.tr(),
                 style: getNunitoStyle(
                   fontSize: 38.sp,
                   color: ColorManager.orange,
@@ -56,10 +54,11 @@ class SplashViewBody extends StatelessWidget {
                 children: [
                   SizedBox(
                     width: 60.w,
-                    child: Divider(color: ColorManager.liteOrange, thickness: 1),
+                    child:
+                        Divider(color: ColorManager.liteOrange, thickness: 1),
                   ),
                   Text(
-                    ' THE NOBLE QURAN ',
+                    'THE NOBLE QURAN ',
                     style: getNunitoStyle(
                       fontSize: 14.sp,
                       color: ColorManager.orange,
@@ -68,7 +67,8 @@ class SplashViewBody extends StatelessWidget {
                   ),
                   SizedBox(
                     width: 60.w,
-                    child: Divider(color: ColorManager.liteOrange, thickness: 1),
+                    child:
+                        Divider(color: ColorManager.liteOrange, thickness: 1),
                   ),
                 ],
               ),

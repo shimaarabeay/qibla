@@ -3,13 +3,10 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:qibla/core/app/app_prefs.dart';
-import 'package:qibla/core/app/auth_model_storage.dart';
-import 'package:qibla/core/presentation/resources/routes_manager.dart';
+
 import 'package:url_launcher/url_launcher.dart';
 
 import '../../generated/locale_keys.dart';
-import 'dart:convert';
 
 SizedBox verticalSpace(double value) => SizedBox(height: value.h);
 
@@ -100,16 +97,14 @@ String? amountValidator(String? value) {
     return LocaleKeys.amountInvalid.tr();
   }
 
-
   return null;
 }
-
-
 
 String getName(String ar, String en, BuildContext context) {
   String selectedName = isCurrentLanguageEn(context) ? en : ar;
   return selectedName;
 }
+
 bool isCurrentLanguageEn(BuildContext context) {
   return EasyLocalization.of(context)!.locale.languageCode == 'en'
       ? true
@@ -123,7 +118,7 @@ String formatDateTime(String date, BuildContext context) {
   DateTime dateTime = DateTime.parse(date);
 
   DateFormat dateFormat =
-  DateFormat('MMM dd, yyyy', context.locale.languageCode);
+      DateFormat('MMM dd, yyyy', context.locale.languageCode);
 
   String formattedDateTime = dateFormat.format(dateTime);
 
@@ -162,11 +157,9 @@ Future<void> openSocialLink(String url) async {
 }
 
 bool detectTextLanguageIsEnMore(String text) {
-  final arabicCount =
-      RegExp(r'[\u0600-\u06FF]').allMatches(text).length;
+  final arabicCount = RegExp(r'[\u0600-\u06FF]').allMatches(text).length;
 
-  final englishCount =
-      RegExp(r'[A-Za-z]').allMatches(text).length;
+  final englishCount = RegExp(r'[A-Za-z]').allMatches(text).length;
 
   return englishCount > arabicCount;
 }

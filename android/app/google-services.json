@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "777259273539",
+    "project_id": "qibla-56047",
+    "storage_bucket": "qibla-56047.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:777259273539:android:04033781037596353733f6",
+        "android_client_info": {
+          "package_name": "com.example.qibla"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBk14EWQHkDMyHwENLkAJcSAs8owTvFWts"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

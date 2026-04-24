@@ -1,7 +1,7 @@
 
 
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
-
 class BottomNavigationBarEntity {
   final IconData icon;
   final String name;
@@ -14,16 +14,16 @@ class BottomNavigationBarEntity {
 
 List<BottomNavigationBarEntity> get bottomNavigationBarItems => [
   BottomNavigationBarEntity(
-    icon: Icons.home,
-    name: 'الرئيسية',
+    icon: Icons.headphones,
+    name: "home.listen".tr(),
   ),
   BottomNavigationBarEntity(
     icon: Icons.menu_book,
-    name: 'المصحف',
+    name:"home.mushaf".tr(),
   ),
   BottomNavigationBarEntity(
-    icon: Icons.explore,
-    name: 'القبلة',
+    icon: Icons.touch_app,
+    name: "home.tasbeeh".tr(),
   ),
   BottomNavigationBarEntity(
     icon: Icons.settings,
